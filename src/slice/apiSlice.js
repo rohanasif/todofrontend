@@ -13,7 +13,6 @@ export const api = createApi({
       return headers;
     },
   }),
-  tagTypes: ["todos"],
   endpoints: (builder) => ({
     getCurrentUser: builder.query({
       query: () => ({
@@ -27,7 +26,6 @@ export const api = createApi({
         method: "POST",
         body: user,
       }),
-      invalidatesTags: ["todos"],
     }),
     signIn: builder.mutation({
       query: (user) => ({
@@ -35,7 +33,6 @@ export const api = createApi({
         method: "POST",
         body: user,
       }),
-      invalidatesTags: ["todos"],
     }),
     signOut: builder.mutation({
       query: () => ({
@@ -43,14 +40,12 @@ export const api = createApi({
         method: "POST",
         body: {},
       }),
-      invalidatesTags: ["todos"],
     }),
     getTodos: builder.query({
       query: () => ({
         url: "/todos",
         method: "GET",
       }),
-      providesTags: ["todos"],
     }),
     addTodo: builder.mutation({
       query: (todo) => ({
@@ -58,7 +53,6 @@ export const api = createApi({
         method: "POST",
         body: todo,
       }),
-      invalidatesTags: ["todos"],
     }),
     updateTodo: builder.mutation({
       query: (todo) => ({
@@ -66,7 +60,6 @@ export const api = createApi({
         method: "PUT",
         body: todo,
       }),
-      invalidatesTags: ["todos"],
     }),
     toggleTodo: builder.mutation({
       query: (todo) => ({
@@ -74,14 +67,12 @@ export const api = createApi({
         method: "PATCH",
         body: { title: todo.title, completed: todo.completed },
       }),
-      invalidatesTags: ["todos"],
     }),
     deleteTodo: builder.mutation({
       query: (id) => ({
         url: `/todos/${id}`,
         method: "DELETE",
       }),
-      invalidatesTags: ["todos"],
     }),
   }),
 });
