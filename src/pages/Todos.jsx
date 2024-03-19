@@ -17,7 +17,7 @@ const Todos = () => {
 
   const handleAdd = (e) => {
     e.preventDefault();
-    add({ title, completed: false, userId: currentUser._id });
+    add({ title, completed: false, userId: currentUser?._id });
     dispatch(addTodo({ title, completed: false }));
     setTitle("");
   };
